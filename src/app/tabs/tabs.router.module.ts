@@ -17,20 +17,20 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'markerCluster',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../marker-cluster/marker-cluster.module#MarkerClusterPageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'add',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../user/add/add.module#AddPageModule'
           }
         ]
       },
