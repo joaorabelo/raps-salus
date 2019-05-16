@@ -43,10 +43,10 @@
         <ion-icon name="arrow-dropup"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="top">
-        <ion-fab-button><ion-icon src="assets/markercluster/icons/crianca.svg"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon src="assets/markercluster/icons/diabetico.svg"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon src="assets/markercluster/icons/gestante.svg"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon src="assets/markercluster/icons/hipertenso.svg"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="filterHealthCondition('crianca')"><ion-icon src="assets/markercluster/icons/crianca.svg"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="filterHealthCondition('diabetico')" ><ion-icon src="assets/markercluster/icons/diabetico.svg"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="filterHealthCondition('gestante')"><ion-icon src="assets/markercluster/icons/gestante.svg"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="filterHealthCondition('hipertenso')"><ion-icon src="assets/markercluster/icons/hipertenso.svg"></ion-icon></ion-fab-button>
       </ion-fab-list>
     </ion-fab>
 </ion-content>

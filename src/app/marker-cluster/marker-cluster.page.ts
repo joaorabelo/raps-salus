@@ -42,6 +42,11 @@ export class MarkerClusterPage implements OnInit {
     this.addCluster(this.dummyData());
   }
 
+  filterHealthCondition(healthCondition) {
+
+    this.addCluster(this.dummyData(healthCondition));
+  }
+
   addCluster(data) {
     const markerCluster: MarkerCluster = this.map.addMarkerClusterSync({
       markers: data,
@@ -68,13 +73,14 @@ export class MarkerClusterPage implements OnInit {
       const marker: Marker = params[1];
       marker.setTitle(marker.get('name'));
       marker.setSnippet(marker.get('sus'));
+      marker.setSnippet(marker.get('heath'));
       marker.showInfoWindow();
     });
 
   }
 
-  dummyData() {
-    return [
+  dummyData(heathCategory = 'todos') {
+    var data = [
       {
         position: {
           lat: -10.611720,
@@ -82,6 +88,7 @@ export class MarkerClusterPage implements OnInit {
         },
         name: 'João Rabelo de Araujo',
         sus: '9989878967126',
+        heath: 'diabetico',
         icon: 'assets/markercluster/diabetico.png'
       },
       {
@@ -91,6 +98,7 @@ export class MarkerClusterPage implements OnInit {
         },
         name: 'Eloi Morais',
         sus: '9989878967120',
+        heath: 'crianca',
         icon: 'assets/markercluster/crianca.png'
       },
       {
@@ -100,6 +108,7 @@ export class MarkerClusterPage implements OnInit {
         },
         name: 'Patricia Santos',
         sus: '99898789671123',
+        heath: 'gestante',
         icon: 'assets/markercluster/gestante.png'
       },
       {
@@ -109,6 +118,7 @@ export class MarkerClusterPage implements OnInit {
         },
         name: 'Rosey Mary Santana',
         sus: '9989878967106',
+        heath: 'hipertenso',
         icon: 'assets/markercluster/hipertenso.png'
       },
       {
@@ -118,8 +128,19 @@ export class MarkerClusterPage implements OnInit {
         },
         name: 'Aryel Gois',
         sus: '9989878967106',
+        heath: 'hipertenso',
         icon: 'assets/markercluster/hipertenso.png'
       }
     ];
+
+    if (heathCategory === 'todos') {
+      return data;
+    } else {
+     let filter = data.filter((user) => {
+      return user.heath === heathCategory;
+    });
+     console.log(filter);
+     return filter;
+    }
   }
 }
